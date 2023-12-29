@@ -8,13 +8,13 @@ interface Props {
 export default function StudentDetail({ studentInfo }: Props) {
   return (
     <div className='w-500'>
-      <div>
-        <p className='text-3xl'>소개</p>
-        <p className='p-2 h-32'>{studentInfo.소개}</p>
+      <div className='mb-10'>
+        <h2 className='text-3xl'>소개</h2>
+        <p className='p-2 h-32 overflow-y-auto'>{studentInfo.소개}</p>
       </div>
-      <div>
-        <p className='text-2xl'>장점</p>
-        <p className='p-2 h-32'>{studentInfo.장점}</p>
+      <div className='mb-10'>
+        <h2 className='text-2xl'>장점</h2>
+        <p className='p-2 h-32 overflow-y-auto'>{studentInfo.장점}</p>
       </div>
     </div>
   );

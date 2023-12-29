@@ -8,7 +8,6 @@ import InputAndButton from './components/InputAndButton';
 
 export default function Home() {
   const students = useStudentList();
-  const [selectedStudent, setSelectedStudent] = useState<string>('');
   const [studentInfo, setStudentInfo] = useState<StudentInfo>({
     소개: '',
     장점: '',
