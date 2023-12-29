@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useStudentList, StudentInfo } from './useStudentList';
-import { StudentList } from './StudentList';
-import { StudentDetail } from './StudentDetail';
-import { InputAndButton } from './InputAndButton';
+import { useStudentList, StudentInfo } from './hooks/useStudentList';
+import StudentList from './components/StudentList';
+import StudentDetail from './components/StudentDetail';
+import InputAndButton from './components/InputAndButton';
 
 export default function Home() {
   const students = useStudentList();

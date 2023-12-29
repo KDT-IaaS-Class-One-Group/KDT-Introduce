@@ -5,7 +5,7 @@ interface Props {
   studentInfo: StudentInfo;
 }
 
-export default function StudentDetail({ studentInfo }) {
+export default function StudentDetail({ studentInfo }: Props) {
   return (
     <>
       <div>

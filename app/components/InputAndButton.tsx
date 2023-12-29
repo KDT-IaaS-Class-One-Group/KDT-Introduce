@@ -4,7 +4,7 @@ interface Props {
   onSubmit: (name: string) => void;
 }
 
-export default function InputAndButton ({ onSubmit }) {
+export default function InputAndButton({ onSubmit }: Props) {
   const [inputValue, setInputValue] = useState('');
 
   return (
@@ -23,4 +23,4 @@ export default function InputAndButton ({ onSubmit }) {
       </button>
     </>
   );
-};
+}
