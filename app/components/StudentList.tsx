@@ -17,7 +17,7 @@ export default function StudentList({ students, onSelect }: Props) {
   };
 
   return (
-    <ul className='p-6 flex-none w-full md:w-60 min-h-full overflow-y-auto cursor-pointer flex flex-col justify-between'>
+    <ul className='p-6 flex-none w-full md:w-60 min-h-full overflow-y-scroll cursor-pointer flex flex-col justify-between'>
       {Object.keys(students).map((name) => (
         <li
           key={name}
@@ -25,7 +25,7 @@ export default function StudentList({ students, onSelect }: Props) {
           className={`${
             name === selectedName
               ? 'font-bold list-disc text-right'
-              : 'font-normal'
+              : 'font-normal opacity-50'
           }`}
         >
           {name}

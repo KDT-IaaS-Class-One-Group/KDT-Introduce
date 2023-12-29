@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export interface StudentInfo {
+  이름: string;
   소개: string;
   장점: string;
 }
@@ -20,4 +21,3 @@ export function useStudentList() {
 
   return students;
 }
-
