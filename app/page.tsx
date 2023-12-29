@@ -30,7 +30,6 @@ export default function Home() {
   }, []);
 
   const handleStudentClick = (name: string): void => {
-    setSelectedStudent(name);
     setStudentInfo(students[name]);
   };
 
@@ -55,13 +54,18 @@ export default function Home() {
         {/* Main Content */}
         <div className='flex-1 p-6 flex flex-col min-h-full'>
           <div>
-            <p className='text-3xl'>소개</p>
-            <p className='p-2 h-32'>{studentInfo.소개}</p>
-            <p className='text-2xl'>장점</p>
-            <p className='p-2 h-32'>{studentInfo.장점}</p>
+            <div>
+              <p className='text-3xl'>소개</p>
+              <p className='p-2 h-32'>{studentInfo.소개}</p>
+            </div>
+            <div>
+              <p className='text-2xl'>장점</p>
+              <p className='p-2 h-32'>{studentInfo.장점}</p>
+            </div>
             <input
               type='text'
               className='p-4 mb-4 h-10'
+              placeholder='Write your name.'
               onChange={(e) => setSelectedStudent(e.target.value)}
             ></input>
             <button
