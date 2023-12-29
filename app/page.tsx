@@ -41,9 +41,9 @@ export default function Home() {
 
   return (
     <div className='flex justify-center items-center min-h-screen'>
-      <div className='flex flex-row bg-gray-100 p-8 shadow-xl w-3/5 h-4/5'>
+      <div className='flex flex-row bg-gray-100 p-8 shadow-xl w-3/5'>
         {/* Sidebar */}
-        <ul className='p-6 flex-none w-full md:w-60 min-h-full overflow-y-auto cursor-pointer'>
+        <ul className='p-6 flex-none w-full md:w-60 min-h-full overflow-y-auto cursor-pointer flex flex-col justify-between'>
           {Object.keys(students).map((name) => (
             <li key={name} onClick={() => handleStudentClick(name)}>
               {name}
@@ -52,29 +52,27 @@ export default function Home() {
         </ul>
 
         {/* Main Content */}
-        <div className='flex-1 p-6 flex flex-col min-h-full'>
+        <div className='flex-1 p-6 flex flex-col min-h-full justify-between'>
           <div>
-            <div>
-              <p className='text-3xl'>소개</p>
-              <p className='p-2 h-32'>{studentInfo.소개}</p>
-            </div>
-            <div>
-              <p className='text-2xl'>장점</p>
-              <p className='p-2 h-32'>{studentInfo.장점}</p>
-            </div>
-            <input
-              type='text'
-              className='p-4 mb-4 h-10'
-              placeholder='Write your name.'
-              onChange={(e) => setSelectedStudent(e.target.value)}
-            ></input>
-            <button
-              className='bg-gray-300 text-white p-4'
-              onClick={handleShowButtonClick}
-            >
-              Show
-            </button>
+            <p className='text-3xl'>소개</p>
+            <p className='p-2 h-32'>{studentInfo.소개}</p>
           </div>
+          <div>
+            <p className='text-2xl'>장점</p>
+            <p className='p-2 h-32'>{studentInfo.장점}</p>
+          </div>
+          <input
+            type='text'
+            className='p-4 mb-4 h-10'
+            placeholder='Write your name.'
+            onChange={(e) => setSelectedStudent(e.target.value)}
+          ></input>
+          <button
+            className='bg-gray-300 text-white p-4'
+            onClick={handleShowButtonClick}
+          >
+            Show
+          </button>
         </div>
       </div>
     </div>
