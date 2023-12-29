@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div className='flex justify-center items-center min-h-screen'>
-      <div className='flex flex-row bg-gray-100 p-8 shadow-xl w-3/5'>
+      <div className='flex flex-row bg-gray-100 p-8 shadow-xl w-auto'>
         <StudentList students={students} onSelect={handleStudentClick} />
         <div className='flex-1 p-6 flex flex-col min-h-full justify-between'>
           <StudentDetail studentInfo={studentInfo} />

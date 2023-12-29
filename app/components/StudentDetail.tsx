@@ -7,7 +7,7 @@ interface Props {
 
 export default function StudentDetail({ studentInfo }: Props) {
   return (
-    <>
+    <div className='w-500'>
       <div>
         <p className='text-3xl'>소개</p>
         <p className='p-2 h-32'>{studentInfo.소개}</p>
@@ -16,6 +16,6 @@ export default function StudentDetail({ studentInfo }: Props) {
         <p className='text-2xl'>장점</p>
         <p className='p-2 h-32'>{studentInfo.장점}</p>
       </div>
-    </>
+    </div>
   );
 }

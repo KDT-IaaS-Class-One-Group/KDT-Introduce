@@ -8,7 +8,7 @@ export default function InputAndButton({ onSubmit }: Props) {
   const [inputValue, setInputValue] = useState('');
 
   return (
-    <>
+    <div className='w-500 flex flex-col'>
       <input
         type='text'
         className='p-4 mb-4 h-10'
@@ -21,6 +21,6 @@ export default function InputAndButton({ onSubmit }: Props) {
       >
         Show
       </button>
-    </>
+    </div>
   );
 }
