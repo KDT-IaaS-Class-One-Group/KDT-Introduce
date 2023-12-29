@@ -1,78 +1,34 @@
-'use client';
+import React, { useState } from 'react';
+import { useStudentList, StudentInfo } from './useStudentList';
+import { StudentList } from './StudentList';
+import { StudentDetail } from './StudentDetail';
+import { InputAndButton } from './InputAndButton';
 
-import { useState, useEffect } from 'react';
-
-// 학생 정보에 대한 인터페이스를 정의합니다.
-interface StudentInfo {
-  소개: string;
-  장점: string;
-}
-
-// 학생 목록의 타입을 정의합니다.
-interface StudentList {
-  [key: string]: StudentInfo;
-}
-
-// page.tsx
 export default function Home() {
-  const [students, setStudents] = useState<StudentList>({});
+  const students = useStudentList();
   const [selectedStudent, setSelectedStudent] = useState<string>('');
   const [studentInfo, setStudentInfo] = useState<StudentInfo>({
     소개: '',
     장점: '',
   });
 
-  useEffect(() => {
-    // studentList.json에서 학생 데이터를 불러옵니다.
-    fetch('/databases/studentList.json')
-      .then((response) => response.json())
-      .then((data) => setStudents(data as StudentList));
-  }, []);
-
   const handleStudentClick = (name: string): void => {
     setStudentInfo(students[name]);
   };
 
-  const handleShowButtonClick = (): void => {
-    if (students[selectedStudent]) {
-      setStudentInfo(students[selectedStudent]);
+  const handleShowButtonClick = (name: string): void => {
+    if (students[name]) {
+      setStudentInfo(students[name]);
     }
   };
 
   return (
     <div className='flex justify-center items-center min-h-screen'>
       <div className='flex flex-row bg-gray-100 p-8 shadow-xl w-3/5'>
-        {/* Sidebar */}
-        <ul className='p-6 flex-none w-full md:w-60 min-h-full overflow-y-auto cursor-pointer flex flex-col justify-between'>
-          {Object.keys(students).map((name) => (
-            <li key={name} onClick={() => handleStudentClick(name)}>
-              {name}
-            </li>
-          ))}
-        </ul>
-
-        {/* Main Content */}
+        <StudentList students={students} onSelect={handleStudentClick} />
         <div className='flex-1 p-6 flex flex-col min-h-full justify-between'>
-          <div>
-            <p className='text-3xl'>소개</p>
-            <p className='p-2 h-32'>{studentInfo.소개}</p>
-          </div>
-          <div>
-            <p className='text-2xl'>장점</p>
-            <p className='p-2 h-32'>{studentInfo.장점}</p>
-          </div>
-          <input
-            type='text'
-            className='p-4 mb-4 h-10'
-            placeholder='Write your name.'
-            onChange={(e) => setSelectedStudent(e.target.value)}
-          ></input>
-          <button
-            className='bg-gray-300 text-white p-4'
-            onClick={handleShowButtonClick}
-          >
-            Show
-          </button>
+          <StudentDetail studentInfo={studentInfo} />
+          <InputAndButton onSubmit={handleShowButtonClick} />
         </div>
       </div>
     </div>
